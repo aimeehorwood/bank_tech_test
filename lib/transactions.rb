@@ -6,4 +6,5 @@ class Transactions
   def return_date
     @date
   end
+
 end
