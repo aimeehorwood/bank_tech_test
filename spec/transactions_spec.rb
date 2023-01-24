@@ -11,4 +11,13 @@ RSpec.describe Transactions do
     transactions = Transactions.new
     expect(transactions.return_all_transactions).to eq []
   end
+
+  it "initializes with 0 for credit" do 
+    transactions = Transactions.new 
+    expect(transactions.return_credit).to eq 0 
+  end 
+
+
+
+
 end
