@@ -28,5 +28,8 @@ class Transactions
     @credit = amount 
   end 
 
+  def debit(amount)
+    @debit = amount 
+  end 
 
 end

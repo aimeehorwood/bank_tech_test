@@ -31,3 +31,12 @@ describe "#credit method" do
   end
 end
 
+describe "#debit method" do
+  it "updates debit from 0 to given number" do
+    transactions = Transactions.new
+    transactions.debit(500)
+    expect(transactions.return_debit).to eq 500
+  end
+end
+
+
