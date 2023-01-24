@@ -22,3 +22,12 @@ RSpec.describe Transactions do
     expect(transactions.return_debit).to eq 0
   end
 end
+
+describe "#credit method" do
+  it "updates credit from 0 to given number" do
+    transactions = Transactions.new
+    transactions.credit(500)
+    expect(transactions.return_credit).to eq 500
+  end
+end
+

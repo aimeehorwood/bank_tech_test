@@ -23,4 +23,10 @@ class Transactions
   def return_debit
     @debit
   end
+
+  def credit(amount)
+    @credit = amount 
+  end 
+
+
 end
