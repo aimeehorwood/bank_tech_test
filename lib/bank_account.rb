@@ -8,7 +8,7 @@ class BankAccount
     end 
 
     def add_transaction(transaction)
-        @transaction_history << [transaction.date, transaction.credit, transaction.debit]
+        @transaction_history << [transaction.date,transaction.credit,transaction.debit]
 
     end 
 
