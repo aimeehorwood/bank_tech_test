@@ -7,11 +7,6 @@ RSpec.describe Transactions do
     allow(Time).to receive(:now).and_return(time_one)
   end
 
-  it "initializes with an empty array of transactions" do
-    transactions = Transactions.new
-    expect(transactions.return_all_transactions).to eq []
-  end
-
   it "initializes with 0 for credit" do
     transactions = Transactions.new
     expect(transactions.return_credit).to eq 0
@@ -26,7 +21,7 @@ end
 describe "#credit method" do
   it "updates credit from 0 to given number" do
     transactions = Transactions.new
-    transactions.credit(500)
+    transactions.credit_account(500)
     expect(transactions.return_credit).to eq 500
   end
 end
@@ -34,7 +29,7 @@ end
 describe "#debit method" do
   it "updates debit from 0 to given number" do
     transactions = Transactions.new
-    transactions.debit(500)
+    transactions.debit_account(500)
     expect(transactions.return_debit).to eq 500
   end
 end

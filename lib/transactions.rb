@@ -1,19 +1,16 @@
 require "time"
 
 class Transactions
+  attr_reader :date, :credit, :debit
+
   def initialize
     @date = Time.now.strftime("%d/%m/%Y")
     @credit = 0
     @debit = 0
-    @transactions_list = []
   end
 
   def return_date
     @date
-  end
-
-  def return_all_transactions
-    @transactions_list
   end
 
   def return_credit
@@ -24,12 +21,11 @@ class Transactions
     @debit
   end
 
-  def credit(amount)
-    @credit = amount 
-  end 
+  def credit_account(amount)
+    @credit = amount
+  end
 
-  def debit(amount)
-    @debit = amount 
-  end 
-
+  def debit_account(amount)
+    @debit = amount
+  end
 end
