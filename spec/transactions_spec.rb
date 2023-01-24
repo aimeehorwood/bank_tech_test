@@ -17,6 +17,11 @@ RSpec.describe Transactions do
     transactions = Transactions.new
     expect(transactions.return_debit).to eq 0
   end
+
+  it "initializes with 0 for balance" do
+    transactions = Transactions.new
+    expect(transactions.return_balance).to eq 0
+  end
 end
 
 describe "#credit method" do

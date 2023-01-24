@@ -18,9 +18,13 @@ class Transactions
   def return_credit
     @credit
   end
-
+  
   def return_debit
     @debit
+  end
+
+  def return_balance
+    @balance
   end
 
   def credit_account(amount)
