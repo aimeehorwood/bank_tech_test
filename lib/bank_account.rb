@@ -12,7 +12,7 @@ class BankAccount
 
     end 
 
-    def view 
+    def view_history 
         @transaction_history
     end 
 

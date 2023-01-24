@@ -4,7 +4,8 @@ RSpec.describe Transactions do
   it "initializes with date" do
     time_one = Time.new(2023, 1, 23)
     transactions = Transactions.new
-    allow(Time).to receive(:now).and_return(time_one)
+    date = Time.now.strftime("%d/%m/%Y")
+    expect(transactions.return_date).to eq date
   end
 
   it "initializes with 0 for credit" do
