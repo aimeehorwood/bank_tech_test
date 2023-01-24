@@ -1,6 +1,8 @@
+require "time"
+
 class Transactions
   def initialize
-    @date = "23/01/2023"
+    @date = Time.now.strftime("%d/%m/%Y")
     @transactions_list = []
   end
 
