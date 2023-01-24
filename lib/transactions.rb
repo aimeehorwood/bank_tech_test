@@ -4,6 +4,7 @@ class Transactions
   def initialize
     @date = Time.now.strftime("%d/%m/%Y")
     @credit = 0
+    @debit = 0
     @transactions_list = []
   end
 
@@ -13,10 +14,13 @@ class Transactions
 
   def return_all_transactions
     @transactions_list
-  end 
+  end
 
   def return_credit
     @credit
-  end 
+  end
 
+  def return_debit
+    @debit
+  end
 end
