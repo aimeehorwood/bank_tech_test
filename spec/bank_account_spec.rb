@@ -6,6 +6,9 @@ RSpec.describe BankAccount do
             bank_account = BankAccount.new 
             expect(bank_account.all_transactions).to eq []
         end
+
+       
     end
-   
+
+
 end
