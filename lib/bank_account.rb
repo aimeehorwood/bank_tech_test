@@ -1,30 +1,37 @@
+require"transactions"
+require "statement_printer"
+
 class BankAccount
-  def initialize
+
+  attr_reader :transactions
+
+  def initialize(transactions_class = Transactions, printer_class = Printer)
+    @transactions_class = transactions_class
+    @printer_class = printer_class
+    @all_transactions = []
     @balance = 0
-    @transaction_history = []
   end
 
-  def add_transaction(transaction)
-    calculate_balance(transaction)
+  def all_transactions 
+    return @all_transactions
+  end 
 
-    @transaction_history << transaction
+  def credit(amount, date)
+    @balance += amount
+    add_transaction(amount, " ", date)
+  end 
+
+  def debit(amount, date)
+    @balance -= amount
+    add_transaction(" ", amount, date)
   end
 
-  def view_history
-    transactions_string = []
-    @transaction_history.each do |transaction|
-      transactions_string << "#{transaction.date} || Credit: #{transaction.credit} || Debit: #{transaction.debit} || Balance: #{transaction.balance}"
-    end
-    transactions_string
+  def add_transaction(credit,debit,date)
+    @all_transactions << @transactions_class.new(date,credit,debit,@balance)
   end
 
-  def calculate_balance(transaction)
-    if transaction.credit > 0
-      transaction.balance = @balance + transaction.credit
-    elsif transaction.debit > 0
-      transaction.balance = @balance - transaction.debit
-    end
-    @balance = transaction.balance
-    return @balance
-  end
+  def print_my_statement
+    @printer_class.print_statement(@all_transactions)
+  end 
+
 end

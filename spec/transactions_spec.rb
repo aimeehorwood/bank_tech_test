@@ -1,4 +1,4 @@
-require "../lib/transactions"
+require "transactions"
 
 RSpec.describe Transactions do
   it "can return date from a single transaction" do
