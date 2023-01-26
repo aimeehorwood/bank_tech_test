@@ -1,4 +1,4 @@
-require "bank_account"
+require_relative "../lib/bank_account"
 
 RSpec.describe BankAccount do
   context "when no transactions added" do
@@ -50,27 +50,14 @@ RSpec.describe BankAccount do
     expect(bank_account.all_transactions[3].date).to eq "25/01/2023"
   end
 
-  describe "printer" do
-    let(:transactions_class) { double(:transactions_class) }
-    let(:printer_class) { double(:printer_class) }
-    let(:transaction1) { double(:transaction1, date: "14/01/2023", credit: "", debit: 500.00, balance: 2500.00) }
-    let(:transaction2) { double(:transaction2, date: "13/01/2023", credit: 2000.00, debit: "", balance: 3000.00) }
-    let(:transaction3) { double(:transaction3, date: "10/01/2023", credit: 1000.00, debit: "", balance: 1000.00) }
-    subject(:bank_account) { described_class.new(transactions_class, printer_class) }
 
-    before do
-      allow(transactions_class).to receive(:new).and_return(transaction1, transaction2, transaction3)
-      allow(printer_class).to receive(:print_statement)
-      bank_account.credit(1000.00, "10/01/2023")
-      bank_account.credit(2000.00, "13/01/2023")
-      bank_account.debit(500.00, "14/01/2023")
-    end
-
-    describe "#print_my_statement" do
-      it "prints the statement in the desired format" do
-        expect(printer_class).to receive(:print_statement).with([transaction1, transaction2, transaction3])
-        bank_account.print_my_statement
-      end
-    end
-  end
+  it "prints out a statement when there is a transaction" do 
+      bank_account = BankAccount.new
+      bank_account.credit(500, "17/01/23")
+      bank_account.debit(300, "18/01/23")
+      expect(bank_account.print_my_statement[0].debit).to eq 300.00  
+      expect(bank_account.print_my_statement[1].credit).to eq 500.00    
+      expect(bank_account.print_my_statement[0].balance).to eq 200.00    
+  end 
+  
 end

@@ -1,14 +1,19 @@
-require_relative "../lib/statement_printer"
+require "statement_printer"
 
+RSpec.describe do
+  let(:transactions) {
+    [double(date: "01/01/2022", credit: 100, debit: 0, balance: 100),
+     double(date: "02/01/2022", credit: 50, debit: 0, balance: 50)]
+  }
+  let(:printer) { Printer.new }
 
-RSpec.describe Printer do
-  let(:transaction) { Transactions.new("23/01/2023", 10.00, "", 10.00) }
-  let(:bank_account) { BankAccount.new }
-  subject(:printer) { described_class.new }
+  it "prints the statement header" do
+    expected_output = "date || credit || debit || balance\n01/01/2022 || 100.00 ||  || 100.00\n02/01/2022 || 50.00 ||  || 50.00\n"
+    expect { printer.print_statement(transactions) }.to output(expected_output).to_stdout
+  end
 
-  describe "print_statement" do
-    it "prints the statement in the desired format" do
-      expect { printer.print_statement(transaction, bank_account) }.to output("date || credit || debit || balance\n23/01/2023 || 10.00 ||  || 10.00\n").to_stdout
-    end
+  it "prints the transactions in the correct format" do
+    expected_output = "date || credit || debit || balance\n01/01/2022 || 100.00 ||  || 100.00\n02/01/2022 || 50.00 ||  || 50.00\n"
+    expect { printer.print_statement(transactions) }.to output(include(expected_output)).to_stdout
   end
 end
