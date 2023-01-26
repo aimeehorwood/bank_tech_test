@@ -1,17 +1,16 @@
-require_relative "../lib/transactions"
-require_relative "../lib/statement_printer"
+# frozen_string_literal: true
+
+require_relative '../lib/transactions'
+require_relative '../lib/statement_printer'
 
 class BankAccount
+
   attr_reader :all_transactions
 
   def initialize(transactions_class = Transactions)
     @transactions_class = transactions_class
     @all_transactions = []
     @balance = 0
-  end
-
-  def all_transactions
-    return @all_transactions
   end
 
   def credit(amount, date)
@@ -33,10 +32,7 @@ class BankAccount
     Printer.new.print_statement(@all_transactions)
   end
 
-  def sort_transactions_by_date 
-    @all_transactions.sort! {|a,b| b.date <=> a.date}
+  def sort_transactions_by_date
+    @all_transactions.sort! { |a, b| b.date <=> a.date }
   end
-
 end
-
-
