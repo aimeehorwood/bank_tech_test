@@ -49,7 +49,9 @@ and see a statement of all my deposit and withdrawal activity.
 
 ### Design
 
-* Before starting the challenge, I mapped out user stories and drew a diagram (planning_diagram.png) of my classes and their responsibilities to adhere to SOLID and OOP design principles.
+* Before starting the challenge, I mapped out user stories and drew a diagram of my classes and their responsibilities to adhere to SOLID and OOP design principles.
+
+![alt text](https://raw.githubusercontent.com/aimeehorwood/bank_tech_test/main/planning_diagram.png)
 
 
 * First, I created a Transactions class to establish a skeleton for a single transaction, sample code:
