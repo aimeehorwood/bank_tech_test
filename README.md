@@ -1,8 +1,10 @@
 # Bank tech test
 
+I completed this in Ruby
+
 ### Requirements
 
-Interact with your code via a REPL like IRB or Node.
+Interact with your code via a IRB.
 Deposits, withdrawal.
 Account statement (date, amount, balance) printing.
 Data can be kept in memory.
@@ -50,7 +52,7 @@ and see a statement of all my deposit and withdrawal activity.
 * Before starting the challenge, I mapped out user stories and drew a diagram (planning_diagram.png) of my classes and their responsibilities to adhere to SOLID and OOP design principles.
 
 
-* First, I created a Transactions class to establish a skeleton for a single transaction
+* First, I created a Transactions class to establish a skeleton for a single transaction, sample code:
 
 
 ```ruby
@@ -66,10 +68,10 @@ class Transactions
 end
 ```
 
-* I then created a BankAccount class to store several transactions through dependency injection in an array. The class has credit and debit methods and uses the print method from the Printer class 
+* I then created a BankAccount class to store several transactions through dependency injection in an array. The class has credit and debit methods and uses the print method from the Printer class, sample code: 
 
 
-```ruby
+```ruby 
 
 class BankAccount
 
@@ -98,7 +100,8 @@ class BankAccount
 end
 ```
 
-* Printer, was my final class and its methods of printing and formatting are utilised in the Bank Account class to format statements in the desired way
+* Printer, was my final class and its methods of printing and formatting are utilised in the Bank Account class to format statements in the desired way, sample code:
+
 ```ruby
 
 class Printer
@@ -128,7 +131,8 @@ end
 ### How to get started:
 
 * clone this repository
-*  `bundle install` inside the terminal
+* `cd` to directory
+* `bundle install` inside the terminal
 
 ### Example of program in irb terminal
 
@@ -157,11 +161,8 @@ date || credit || debit || balance
 
 ### Gemfile
 ```ruby
-# frozen_string_literal: true
 
 source 'https://rubygems.org'
-
-# gem "rails"
 
 gem 'rspec', '~> 3.12'
 
